@@ -1,12 +1,12 @@
 Name: obs-tools
-Version: 15
+Version: 16
 Release: 0
 License: LGPL
 Summary: %{name}
 BuildArch: noarch
 BuildRequires: (rpm-build-perl or perl-generators or %{_rpmconfigdir}/perl.req)
 BuildRequires: (sed or %{_bindir}/sed)
-Source0: obs_service_run.pl
+Source0: obs_service_run.sh
 Source1: obs_service_list.pl
 Source2: obs_copr_build.pl
 Source3: obs_dnf_install.sh
@@ -17,6 +17,7 @@ Source7: pkg_check_available.sh
 Source8: obs_service_pkg_list.sh
 Source9: obs_repos_list.pl
 Source10: obs_pkg_list.pl
+Source11: obs_remote_run.pl
 
 Requires: (%{_bindir}/perl or perl-interpreter or perl)
 Requires: cpio
@@ -30,12 +31,13 @@ Requires: sed
 %{summary}.
 
 %install
-install -Dm755 %{SOURCE0} %{buildroot}%{_bindir}/obs_service_run
+install -Dm755 %{SOURCE0} %{buildroot}%{_bindir}/obs_remote_run
 install -Dm755 %{SOURCE1} %{buildroot}%{_bindir}/obs_service_list
 install -Dm755 %{SOURCE8} %{buildroot}%{_bindir}/obs_service_pkg_list
 install -Dm755 %{SOURCE9} %{buildroot}%{_bindir}/obs_repos_list
 install -Dm755 %{SOURCE10} %{buildroot}%{_bindir}/obs_pkg_list
 install -Dm755 %{SOURCE2} %{buildroot}%{_bindir}/obs_copr_build
+install -Dm755 %{SOURCE11} %{buildroot}%{_bindir}/obs_service_run
 %{lua:
 
 exclude_package_managers = {}
@@ -97,6 +99,7 @@ install -Dm755 %{SOURCE6} %{buildroot}%{_bindir}/obs_local_run
 
 %files
 %attr(755, root, root) %{_bindir}/obs_service_run
+%attr(755, root, root) %{_bindir}/obs_remote_run
 %attr(755, root, root) %{_bindir}/obs_service_list
 %attr(755, root, root) %{_bindir}/obs_local_run
 %attr(755, root, root) %{_bindir}/obs_pkg_list
