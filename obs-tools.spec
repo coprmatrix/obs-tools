@@ -1,5 +1,5 @@
 Name: obs-tools
-Version: 17
+Version: 19
 Release: 0
 License: LGPL
 Summary: %{name}
@@ -31,13 +31,13 @@ Requires: sed
 %{summary}.
 
 %install
-install -Dm755 %{SOURCE0} %{buildroot}%{_bindir}/obs_remote_run
+install -Dm755 %{SOURCE0} %{buildroot}%{_bindir}/obs_service_run
 install -Dm755 %{SOURCE1} %{buildroot}%{_bindir}/obs_service_list
 install -Dm755 %{SOURCE8} %{buildroot}%{_bindir}/obs_service_pkg_list
 install -Dm755 %{SOURCE9} %{buildroot}%{_bindir}/obs_repos_list
 install -Dm755 %{SOURCE10} %{buildroot}%{_bindir}/obs_pkg_list
 install -Dm755 %{SOURCE2} %{buildroot}%{_bindir}/obs_copr_build
-install -Dm755 %{SOURCE11} %{buildroot}%{_bindir}/obs_service_run
+install -Dm755 %{SOURCE11} %{buildroot}%{_bindir}/obs_remote_run
 %{lua:
 
 exclude_package_managers = {}
