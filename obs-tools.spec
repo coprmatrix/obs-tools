@@ -1,5 +1,5 @@
 Name: obs-tools
-Version: 21
+Version: 22
 Release: 0
 License: LGPL
 Summary: %{name}
@@ -138,10 +138,10 @@ Requires: (%{_bindir}/bash or bash)
 %{summary}.
 
 %%post %{pkg_manager_name}-pkg
-%{_sbindir}/update-alternatives --install '%{_bindir}/obs_pkg_install' obs_pkg_install '%{_bindir}/obs_%{pkg_manager_name}_install' 25
+update-alternatives --install '%{_bindir}/obs_pkg_install' obs_pkg_install '%{_bindir}/obs_%{pkg_manager_name}_install' 25
 
 %%postun %{pkg_manager_name}-pkg
-%{_sbindir}/update-alternatives --remove obs_pkg_install '%{_bindir}/obs_%{pkg_manager_name}_install' || :
+update-alternatives --remove obs_pkg_install '%{_bindir}/obs_%{pkg_manager_name}_install' || :
 
 %%files %{pkg_manager_name}-pkg
 %%attr(755, root, root) %{_bindir}/obs_%{pkg_manager_name}_install
@@ -157,10 +157,10 @@ Requires: (%{_bindir}/bash or bash)
 %{summary}.
 
 %%post %{pkg_manager_name}-pkg-checkaval
-%{_sbindir}/update-alternatives --install '%{_bindir}/pkg_check_available' pkg_check_available '%{_bindir}/%{pkg_manager_name}_check_available' 25
+update-alternatives --install '%{_bindir}/pkg_check_available' pkg_check_available '%{_bindir}/%{pkg_manager_name}_check_available' 25
 
 %%postun %{pkg_manager_name}-pkg-checkaval
-%{_sbindir}/update-alternatives --remove pkg_check_available '%{_bindir}/%{pkg_manager_name}_check_available' || :
+update-alternatives --remove pkg_check_available '%{_bindir}/%{pkg_manager_name}_check_available' || :
 
 %%files %{pkg_manager_name}-pkg-checkaval
 %%attr(755, root, root) %{_bindir}/%{pkg_manager_name}_check_available
