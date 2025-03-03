@@ -1,5 +1,5 @@
 Name: obs-tools
-Version: 22
+Version: 23
 Release: 0
 License: LGPL
 Summary: %{name}
@@ -22,6 +22,7 @@ Source11: obs_remote_run.pl
 Requires: (%{_bindir}/perl or perl-interpreter or perl)
 Requires: cpio
 Requires: sed
+Requires: obs-build
 
 %global __perl_requires %{_rpmconfigdir}/perl.req
 
