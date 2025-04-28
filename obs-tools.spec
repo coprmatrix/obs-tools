@@ -1,5 +1,5 @@
 Name: obs-tools
-Version: 25
+Version: 26
 Release: 0
 License: LGPL
 Summary: %{name}
@@ -18,6 +18,7 @@ Source8: obs_service_pkg_list.sh
 Source9: obs_repos_list.pl
 Source10: obs_pkg_list.pl
 Source11: obs_remote_run.pl
+Source12: obs_mockbuild.sh
 
 Requires: (%{_bindir}/perl or perl-interpreter or perl)
 Requires: cpio
@@ -39,6 +40,12 @@ install -Dm755 %{SOURCE9} %{buildroot}%{_bindir}/obs_repos_list
 install -Dm755 %{SOURCE10} %{buildroot}%{_bindir}/obs_pkg_list
 install -Dm755 %{SOURCE2} %{buildroot}%{_bindir}/obs_copr_build
 install -Dm755 %{SOURCE11} %{buildroot}%{_bindir}/obs_remote_run
+install -Dm755 %{SOURCE12} %{buildroot}%{_bindir}/obs_mockbuild
+mkdir -pv %{buildroot}%{_sysconfdir}/sudoers.d
+cat << EOF > %{buildroot}%{_sysconfdir}/sudoers.d/mockbuild
+mockbuild ALL=(ALL) NOPASSWD: ALL
+EOF
+
 %{lua:
 
 exclude_package_managers = {}
@@ -192,11 +199,19 @@ Requires: rpm-build
 %files build
 %attr(755, root, root) %{_bindir}/obs_service_build
 
+%package mockbuild
+Summary: obs tools mockbuild
+Requires: obs-tools-pkg-checkaval
+Requires: obs-tools-pkg
+Requires: obs-tools
+Requires: pam
+Requires: rpm-build
+Requires: sudo
+Requires: bash
 
+%description
+used to leverage mockbuild sudo
 
-
-
-
-
-
-
+%files
+%attr(644, root, root) %{_sysconfdir}/sudoers.d/mockbuild
+%attr(755, root, root) %{_bindir}/obs_mockbuild
