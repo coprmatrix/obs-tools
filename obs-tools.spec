@@ -73,7 +73,7 @@ end
 
 package_manager_string = '/'
 
-for key, value in pairs({ dnf = 'provides', dnf5 = 'provides', zypper = 'search --provides --match-exact', microdnf = 'provides' })
+for key, value in pairs({ dnf = '--refresh provides', dnf5 = '--refresh provides', zypper = 'search --provides --match-exact', microdnf = 'provides' })
 do
 if allowed_package_manager(key)
 then
