@@ -41,7 +41,7 @@ then
     buildcheck="n"
 fi
 
-rpmbuild -br "-D_sourcedir $PWD/.osc.temp/_output_dir" "-D_topdir $PWD/.osc.temp/_output_dir" "$PWD/.osc.temp/_output_dir/"*.spec
+rpmbuild -br "-D_sourcedir $PWD/.osc.temp/_output_dir" "-D_srcrpmdir $PWD/.osc.temp/_output_dir" "$PWD/.osc.temp/_output_dir/"*.spec
 
 while IFS= read -r line; do
    if [[ -n "$line" ]]
@@ -49,7 +49,7 @@ while IFS= read -r line; do
        variables+=("$line")
        buildcheck="y"
    fi
-done <<< `rpm -q --requires .osc.temp/_output_dir/SRPMS/*.buildreqs.nosrc.rpm | sed 's~^rpmlib.*~~'`
+done <<< `rpm -q --requires .osc.temp/_output_dir/*.buildreqs.nosrc.rpm | sed 's~^rpmlib.*~~'`
 
 if [[ "$buildcheck" == "y" ]]
 then
