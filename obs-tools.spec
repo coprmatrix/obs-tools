@@ -209,9 +209,9 @@ Requires: rpm-build
 Requires: sudo
 Requires: bash
 
-%description
+%description mockbuild
 used to leverage mockbuild sudo
 
-%files
+%files mockbuild
 %attr(644, root, root) %{_sysconfdir}/sudoers.d/mockbuild
 %attr(755, root, root) %{_bindir}/obs_mockbuild
