@@ -1,5 +1,5 @@
 Name: obs-tools
-Version: 26
+Version: 27
 Release: 0
 License: LGPL
 Summary: %{name}
@@ -204,6 +204,7 @@ Summary: obs tools mockbuild
 Requires: obs-tools-pkg-checkaval
 Requires: obs-tools-pkg
 Requires: obs-tools
+Requires: obs-tools-build
 Requires: pam
 Requires: rpm-build
 Requires: sudo
