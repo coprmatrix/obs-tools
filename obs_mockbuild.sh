@@ -4,7 +4,7 @@ pushd "${1:-.}"
 ITERATIONS="${ITERATIONS:-2}"
 ITERATIONS="${ITERATIONS:-$2}"
 
-TIMEOUT="${TIMEOUT:-100s}"
+TIMEOUT="${TIMEOUT:-100}"
 TIMEOUT="${TIMEOUT:-$3}"
 
 typeset -a variables=()
