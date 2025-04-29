@@ -1,10 +1,10 @@
 #!/bin/bash -x
 pushd "${1:-.}"
 
-ITERATIONS="${ITERATIONS:-20}"
+ITERATIONS="${ITERATIONS:-2}"
 ITERATIONS="${ITERATIONS:-$2}"
 
-TIMEOUT="${TIMEOUT:-400}"
+TIMEOUT="${TIMEOUT:-400s}"
 TIMEOUT="${TIMEOUT:-$3}"
 
 typeset -a variables=()
