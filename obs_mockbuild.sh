@@ -1,14 +1,13 @@
 #!/bin/bash -x
 pushd "${1:-.}"
 
-ITERATIONS="${ITERATIONS:-20}"
+ITERATIONS="${ITERATIONS:-2}"
 ITERATIONS="${ITERATIONS:-$2}"
 
-TIMEOUT="${TIMEOUT:-400s}"
+TIMEOUT="${TIMEOUT:-100s}"
 TIMEOUT="${TIMEOUT:-$3}"
 
 typeset -a variables=()
-
 
 buildcheck="n"
 while IFS= read -r line; do
