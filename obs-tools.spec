@@ -1,5 +1,5 @@
 Name: obs-tools
-Version: 30
+Version: 31
 Release: 0
 License: LGPL
 Summary: %{name}
@@ -19,6 +19,7 @@ Source9: obs_repos_list.pl
 Source10: obs_pkg_list.pl
 Source11: obs_remote_run.pl
 Source12: obs_mockbuild.sh
+Source13: obs_edit.py
 
 Requires: (%{_bindir}/perl or perl-interpreter or perl)
 Requires: cpio
@@ -38,6 +39,7 @@ install -Dm755 %{SOURCE1} %{buildroot}%{_bindir}/obs_service_list
 install -Dm755 %{SOURCE8} %{buildroot}%{_bindir}/obs_service_pkg_list
 install -Dm755 %{SOURCE9} %{buildroot}%{_bindir}/obs_repos_list
 install -Dm755 %{SOURCE10} %{buildroot}%{_bindir}/obs_pkg_list
+install -Dm755 %{SOURCE13} %{buildroot}%{_bindir}/obs_edit
 install -Dm755 %{SOURCE2} %{buildroot}%{_bindir}/obs_copr_build
 install -Dm755 %{SOURCE11} %{buildroot}%{_bindir}/obs_remote_run
 install -Dm755 %{SOURCE12} %{buildroot}%{_bindir}/obs_mockbuild
@@ -198,6 +200,19 @@ Requires: rpm-build
 
 %files build
 %attr(755, root, root) %{_bindir}/obs_service_build
+
+
+%package edit
+Summary: %{name}
+Requires: %{name}
+Requires: python3
+Requires: python3-pyqt6
+
+%description edit
+%{summary}.
+
+%files edit
+%attr(755, root, root) %{_bindir}/obs_edit
 
 %package mockbuild
 Summary: obs tools mockbuild
