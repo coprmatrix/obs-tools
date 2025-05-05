@@ -323,7 +323,7 @@ def main():
         name = service['name']
         mode = service['mode']
         params = service['params']
-        if mode == 'default':
+        if mode != 'default':
             service = ET.SubElement(root, "service", name=name, mode=mode)
         else:
             service = ET.SubElement(root, "service", name=name)
