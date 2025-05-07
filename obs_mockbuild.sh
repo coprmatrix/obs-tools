@@ -20,7 +20,7 @@ done <<< `obs_service_pkg_list`
 
 if [[ "$buildcheck" == "y" ]]
 then
-    sudo bash -x -c 'A=$1; B=$2; shift; shift; pkg_check_available ${A} ${B} ${@}; obs_pkg_install "${@}"' "bash" "${ITERATIONS}" "${TIMEOUT}" "${variables[@]}"
+    sudo bash -x -c 'A=$1; B=$2; shift; shift; pkg_check_available ${A} ${B} "${@}"; obs_pkg_install "${@}"' "bash" "${ITERATIONS}" "${TIMEOUT}" "${variables[@]}"
     buildcheck="n"
 fi
 
@@ -36,7 +36,7 @@ done <<< `rpmspec --query --buildrequires .osc.temp/_output_dir/*.spec`
 
 if [[ "$buildcheck" == "y" ]]
 then
-    sudo bash -x -c 'A=$1; B=$2; shift; shift; pkg_check_available ${A} ${B} ${@}; obs_pkg_install "${@}"' "bash" "${ITERATIONS}" "${TIMEOUT}" "${variables[@]}"
+    sudo bash -x -c 'A=$1; B=$2; shift; shift; pkg_check_available ${A} ${B} "${@}"; obs_pkg_install "${@}"' "bash" "${ITERATIONS}" "${TIMEOUT}" "${variables[@]}"
     buildcheck="n"
 fi
 
