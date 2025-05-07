@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QComboBox, QLabel, QScrollArea, QLineEdit, QHBoxLayout, QMessageBox
 from os import getcwd, listdir
@@ -258,7 +258,6 @@ def serviceInit(name, tracer):
 
     button = QPushButton("+")
     button.clicked.connect(lambda *a: addService(window, name.currentText(), 'default'))
-
 
     layout = QVBoxLayout()
     services = QVBoxLayout()
